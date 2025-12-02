@@ -2,7 +2,7 @@
 Simulación de cocina con hilos en Python
 Este proyecto simula el trabajo de una cocina de restaurante usando hilos en Python. Varios cocineros comparten una lista de pedidos, los van sacando de forma segura y registran el trabajo en un archivo de log.
 
-Descripción general
+## Descripción general
 Cocina crea una lista de Pedido y arranca 3 hilos Cocinero.
 
 Cada Cocinero toma pedidos de la lista compartida usando un Lock para evitar condiciones de carrera.
@@ -13,7 +13,7 @@ Cada pedido procesado se muestra por consola y se registra en el archivo log_ped
 
 El programa termina cuando no quedan pedidos y todos los hilos han finalizado.
 
-Estructura de archivos
+## Estructura de archivos
 pedido.py
 
 Clase Pedido:
@@ -32,7 +32,7 @@ Cocinero.py
 
 Clase Cocinero que hereda de threading.Thread.
 
-Atributos:
+## Atributos:
 
 nombre
 
@@ -46,7 +46,7 @@ ARCHIVO_LOG = "log_pedidos.txt"
 
 lock_archivo (para sincronizar escrituras en el log)
 
-Métodos principales:
+## Métodos principales:
 
 run():
 
@@ -56,7 +56,7 @@ Si no quedan pedidos, sale del bucle.
 
 Si obtiene uno, llama a preparar_pedido(pedido).
 
-preparar_pedido(pedido):
+## preparar_pedido(pedido):
 
 Imprime que está preparando el pedido.
 
@@ -66,7 +66,7 @@ Imprime que ha completado el pedido.
 
 Llama a registrar_en_log(pedido).
 
-registrar_en_log(pedido):
+## registrar_en_log(pedido):
 
 Usa with Cocinero.lock_archivo para que solo un hilo escriba en el log a la vez.
 
@@ -78,7 +78,7 @@ Cocina.py
 
 Clase Cocina.
 
-Constante de clase:
+## Constante de clase:
 
 ARCHIVO_LOG = "log_pedidos.txt".
 
@@ -108,14 +108,14 @@ Espera a que terminen con join().
 
 Muestra un mensaje final indicando que todos los pedidos han sido procesados.
 
-Bloque principal:
+## Bloque principal:
 
 Si el archivo se ejecuta directamente (if __name__ == "__main__":), llama a Cocina.main().
 
 Requisitos
 Python 3.x.
 
-Archivos:
+## Archivos:
 
 Cocina.py
 
